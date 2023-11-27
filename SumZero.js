@@ -72,6 +72,3 @@ function sumZero2(arr) {
 // if the number is zero, return the values at left index and right index
 // if the number is negative, move the left pointer up one
 // if the number is positive, move the right pointer down one
-
-const result = sumZero2([-3, -2, -1, 0, 1, 2, 3])
-console.log(result);

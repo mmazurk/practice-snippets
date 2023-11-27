@@ -1,3 +1,46 @@
+
+
+class Node {
+  constructor(name, prev = null, next = null) {
+    this.name = name;
+    this.prev = prev;
+    this.next = next;
+  }
+}
+
+class SpecialNode extends Node {
+  constructor(name, prev, next, type = "special") {
+    super(name, prev, next);
+    this.type = type;
+  }
+  bark() {
+    console.log("woof woof");
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Person {
   constructor(name = "Andrew", age = 33) {
     this.name = name;

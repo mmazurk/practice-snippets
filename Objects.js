@@ -56,3 +56,20 @@ const library = {
 // Object.values() => array
 // Object.is() => boolean
 // Object.entries() => array
+
+
+
+
+
+
+
+
+
+
+
+
+// you did this wrong because you don't know how to use reduce() effectively
+
+const totalBooks = Object.values(library.sections).reduce((total, section) => {
+    return total + section.numberOfBooks;
+}, 0);
