@@ -7,7 +7,7 @@ The function should calculate the maximum sum of n consecutive elements in the a
 // first write the naive solution with nested loops O(N^2)
 */
 
-// last iteration left 3, right 
+// last iteration left 3, right
 
 function maxSubSum1(arr, num) {
   let sum = 0;
@@ -19,10 +19,9 @@ function maxSubSum1(arr, num) {
   }
 
   for (let i = right; i < arr.length; i++) {
-    let tempSum = arr.slice(left, right + 1).reduce((base,next)=>{
-      return base + next
-    }
-    , 0)
+    let tempSum = arr.slice(left, right + 1).reduce((base, next) => {
+      return base + next;
+    }, 0);
 
     if (tempSum > sum) {
       sum = tempSum;
@@ -34,11 +33,11 @@ function maxSubSum1(arr, num) {
 }
 // iterate while right < arr.length
 // start with the first n (num) numbers
-// calculate a sum and save it 
+// calculate a sum and save it
 // check if it's greater than current sum ? save : do nothing
 // increment left and right
 
-// knockout condition: arr.length < num 
+// knockout condition: arr.length < num
 // knockout condition: arr.length === 0
 
 // Then write the solution using a "sliding window"
@@ -53,21 +52,18 @@ function maxSubSum2(arr, num) {
     return;
   }
 
-  let sum = arr.slice(left, right + 1).reduce((base,next)=>{
+  let sum = arr.slice(left, right + 1).reduce((base, next) => {
     return base + next;
-  }
-  , 0)
+  }, 0);
   for (let i = right; i < arr.length; i++) {
     left++;
     right++;
-    let currentSum = sum - (arr[left - 1]) + arr[right];
+    let currentSum = sum - arr[left - 1] + arr[right];
     if (currentSum > sum) {
       sum = currentSum;
     }
-
   }
   return sum;
 }
 
-
-// maxSubSum([1,2,5,2,8,1,5], 3) 
+// maxSubSum([1,2,5,2,8,1,5], 3)
