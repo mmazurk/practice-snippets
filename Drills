@@ -1,4 +1,5 @@
 
-// check and see if an object has a certain key
-
+// Has O(1) for finding a key in an object
+Object.hasOwnProperty(keyname)
+myObject[key] !== undefined; 
 
