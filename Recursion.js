@@ -110,10 +110,23 @@ function productOfArray(arr) {
 // up all the numbers from 0 to the number passed to the function
 
 function recursiveRange(num) {
-    
-    // base case: if(num === 1) { return 1 }
-    // take the num and add it to num - 1
-
-    
-
+  if (num === 1) {
+    return 1;
+  }
+  return num + recursiveRange(num - 1);
 }
+
+/** Write a recursive function called fib which accepts a number and returns the nth number
+ * in the Fibonacci sequence. Recall that the Fibonacci sequence is the sequence of whole
+ * numbers 1, 1, 2, 3, 5, 8, ... which starts with 1 and 1,
+ *  *  and where every number thereafter is equal to the sum of the previous two numbers. */
+
+// fib(0) => 0
+// fib(3) => 2
+// fib(5) => 5
+
+function fib(n){
+  if (n <= 2) return 1;
+  return fib(n-1) + fib(n-2);
+}
+
