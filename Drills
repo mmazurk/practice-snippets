@@ -9,5 +9,10 @@
 // fib(3) => 2
 // fib(5) => 5
 
-// This is just a test
+function fib(num) {
+  if(num <= 2) {
+    return 1;
+  }
+  return fib(num - 1) + fib(num - 2); 
+}
 

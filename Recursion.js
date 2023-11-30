@@ -130,3 +130,21 @@ function fib(n){
   return fib(n-1) + fib(n-2);
 }
 
+// HARDER PROBLEMS
+// HARDER PROBLEMS
+
+/** Write a recursive function 
+ * called reverse which accepts a string and returns 
+ * a new string in reverse.
+
+// reverse('awesome') // 'emosewa'
+// reverse('rithmschool') // 'loohcsmhtir' */
+
+function reverse(str) {
+  if(str.length <= 1) {
+    return str; 
+  }
+  return str[str.length-1].concat(reverse(str.slice(1,str.length-1))).concat(str[0])
+
+}
+
