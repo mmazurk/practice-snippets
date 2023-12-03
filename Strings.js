@@ -3,7 +3,7 @@
 const words = "I have seen things you people wouldn't believe."
 
 // tell me the length
-// take a range of characters out of the string and print it
+// take out the last two words and then print it again
 // check if the string has a subset of letters in it (!! not indexOf)
 // tell me where "th" is in this string
 // put all the words in this string into an array

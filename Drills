@@ -16,3 +16,13 @@ function fib(num) {
   return fib(num - 1) + fib(num - 2); 
 }
 
+// In the following array, find the first number divisible by five
+const num4 = [3, 7, 10, 25, 8];
+
+// Typing
+num4.find((item) => item % 4 === 0);
+
+// get a Boolean telling you if a the word "the" is in this string
+const myString = "Hello there, my friend"
+myString.includes(" the "); 
+
