@@ -1,13 +1,12 @@
+/** Sliding Window Problems */
+
 /** Write a function caled maxSubSum which accepts an array of integers and a number called n. 
 The function should calculate the maximum sum of n consecutive elements in the array
 
 	maxSubSum([1,2,5,2,8,1,5], 2) // 10
-    maxSubsum([1,2,5,2,8,1,5], 4) // 17
+  maxSubsum([1,2,5,2,8,1,5], 4) // 17
 
-// first write the naive solution with nested loops O(N^2)
 */
-
-// last iteration left 3, right
 
 function maxSubSum1(arr, num) {
   let sum = 0;
@@ -31,15 +30,6 @@ function maxSubSum1(arr, num) {
   }
   return sum;
 }
-// iterate while right < arr.length
-// start with the first n (num) numbers
-// calculate a sum and save it
-// check if it's greater than current sum ? save : do nothing
-// increment left and right
-
-// knockout condition: arr.length < num
-// knockout condition: arr.length === 0
-
 // Then write the solution using a "sliding window"
 // You subtract the bottom and add the top as you slide the window
 // This will be O(N)
@@ -67,3 +57,38 @@ function maxSubSum2(arr, num) {
 }
 
 // maxSubSum([1,2,5,2,8,1,5], 3)
+
+/** Given an array of integers and a number, write a function 
+ * called maxSubarraySum, which finds the maximum sum of a subarray 
+ * with the length of the number passed to the function.
+
+Note that a subarray must consist of consecutive elements 
+from the original array. In the first example below, [100, 200, 300] 
+is a subarray of the original array, but [100, 300] is not. */
+
+function maxSubarraySum(arr, num) {
+  if (arr.length < num || arr.length === 0) {
+    return null;
+  }
+
+  let left = 0;
+  let right = num - 1;
+  let maxSum = arr.slice(left, right + 1).reduce((base, next) => base + next);
+  let tempSum = maxSum;
+
+  while (right < arr.length - 1) {
+    left++;
+    right++;
+    tempSum = tempSum - arr[left - 1] + arr[right];
+    if (tempSum > maxSum) {
+      maxSum = tempSum;
+    }
+  }
+  return maxSum;
+}
+
+// maxSubarraySum([100, 200, 300, 400], 2); // 700
+// maxSubarraySum([1, 4, 2, 10, 23, 3, 1, 0, 20], 4); // 39
+// maxSubarraySum([-3, 4, 0, -2, 6, -1], 2); // 5
+// maxSubarraySum([3, -2, 7, -4, 1, -1, 4, -2, 1], 2); // 5
+// maxSubarraySum([2, 3], 3); // null
