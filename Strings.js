@@ -1,6 +1,4 @@
-
-
-const words = "I have seen things you people wouldn't believe."
+const words = "I have seen things you people wouldn't believe.";
 
 // tell me the length
 // take out the last two words and then print it again
@@ -12,15 +10,7 @@ const words = "I have seen things you people wouldn't believe."
 // put the words all in uppercase
 // put the words all in lowercase
 
-
-
-
-
-
-
-
-
-
+// ---------------------------------------------
 
 // words = "I have seen things you people wouldn't believe."
 
@@ -32,12 +22,12 @@ const words = "I have seen things you people wouldn't believe."
 // substring = words[7:16]
 
 // # check if the string has a subset of letters in it (let's say "seen" for this example)
-// subset_check = "seen" in words
-// you can also use words.find()
+// words.includes()
+
+// you might also want to look at words.search() and words.match()
 
 // # tell me where "th" is in this string
-// position_of_th = words.index("th")
-// you can also use words.find()
+// words.indexOf("th")
 
 // # put all the words in this string into an array
 // words_array = words.split()
@@ -52,7 +42,5 @@ const words = "I have seen things you people wouldn't believe."
 // # put the words all in uppercase
 // uppercase_words = words.upper()
 
-
 // # put the words all in lowercase
 // lowercase_words = words.lower()
-
