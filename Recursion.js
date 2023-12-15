@@ -125,9 +125,9 @@ function recursiveRange(num) {
 // fib(3) => 2
 // fib(5) => 5
 
-function fib(n){
+function fib(n) {
   if (n <= 2) return 1;
-  return fib(n-1) + fib(n-2);
+  return fib(n - 1) + fib(n - 2);
 }
 
 // HARDER PROBLEMS
@@ -141,10 +141,79 @@ function fib(n){
 // reverse('rithmschool') // 'loohcsmhtir' */
 
 function reverse(str) {
-  if(str.length <= 1) {
-    return str; 
+  if (str.length <= 1) {
+    return str;
   }
-  return str[str.length-1].concat(reverse(str.slice(1,str.length-1))).concat(str[0])
-
+  return str[str.length - 1]
+    .concat(reverse(str.slice(1, str.length - 1)))
+    .concat(str[0]);
 }
 
+// Write a recursive function called
+// isPalindrome which returns true if the string passed to
+// it is a palindrome (reads the same forward and backward).
+// Otherwise it returns false.
+
+// isPalindrome('awesome') // false
+// isPalindrome('foobar') // false
+// isPalindrome('tacocat') // true
+// isPalindrome('amanaplanacanalpanama') // true
+// isPalindrome('amanaplanacanalpandemonium') // false
+
+function isPalindrome(str) {
+  function reverseMe(str) {
+    if (str.length <= 1) {
+      return str;
+    }
+    let reversedString = str[str.length - 1].concat(
+      reverseMe(str.slice(1, str.length - 1)).concat(str[0])
+    );
+    return reversedString;
+  }
+
+  let reversedStr = reverseMe(str);
+  return str === reversedStr;
+}
+
+/** Write a recursive function called someRecursive
+ * which accepts an array and a callback.
+ * The function returns true if a single value in the array
+ * returns true when passed to the callback. Otherwise it returns false. */
+
+// someRecursive([1,2,3,4], isOdd) // true
+// someRecursive([4,6,8,9], isOdd) // true
+// someRecursive([4,6,8], isOdd) // false
+// someRecursive([4,6,8], val => val > 10); // false
+
+function isOdd(num) {
+  return num % 2 !== 0;
+}
+
+function someRecursive(arr, func) {
+  if (arr.length === 0) {
+    return false;
+  }
+
+  return func(arr[0]) || someRecursive(arr.slice(1, arr.length), func);
+}
+
+/** Write a recursive function called flatten which accepts an array of arrays
+ * and returns a new array with all values flattened. */
+
+function flatten(arr) {
+  let flattenedArray = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      flattenedArray.push(...flatten(arr[i]));
+    } else {
+      flattenedArray.push(arr[i]);
+    }
+  }
+  return flattenedArray;
+}
+
+// flatten([1, 2, 3, [4, 5] ]) // [1, 2, 3, 4, 5]
+// flatten([1, [2, [3, 4], [[5]]]]) // [1, 2, 3, 4, 5]
+// flatten([[1],[2],[3]]) // [1,2,3]
+// flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) // [1,2,3
